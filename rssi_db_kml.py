@@ -31,7 +31,7 @@ startDate = args.startdate[:2] + '/' + args.startdate[2:4] + '/' + args.startdat
 endDate = args.enddate[:2] + '/' + args.enddate[2:4] + '/' + args.enddate[4:] + ' 23:59:59'
 
 print "Executing query"
-conn = pyodbc.connect("DRIVER=TDS;SERVER=67.23.56.246;PORT=14330;DATABASE=StreetSmart;UID=tmacey;PWD=Tae4wuch;TDS_Version=8.0;Trusted_Connection=False")
+conn = pyodbc.connect("DRIVER=TDS;SERVER=<server>;PORT=14330;DATABASE=<DB>;UID=<user>;PWD=<password>;TDS_Version=8.0;Trusted_Connection=False")
 cursor = conn.cursor()
 cursor.execute("SELECT ORGANIZATIONNAME, SPACENUMBER, SERIALNUMBER, Assets.LATITUDE, Assets.LONGITUDE, MIN(CAST(RSSI AS INT)) MinRSSI, MAX(CAST(RSSI AS INT)) MaxRSSI, AVG(CAST(RSSI AS DECIMAL)) AvgRSSI\
     FROM ORGANIZATIONS, ORGANIZATIONASSETS, PARKINGMETERPOLICY, HISTORICALPUCKSTATUS, ASSETS\
